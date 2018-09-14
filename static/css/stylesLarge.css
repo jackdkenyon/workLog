@@ -1,0 +1,72 @@
+div.form-container{
+  display: inline-block;
+  border: 4px ridge blue;
+  width: 680px;
+  border-radius:10px;
+  margin:10px;
+}
+p.form-header{
+  margin:0px;
+  font: 24px bold;
+  color:white;  background:blue;
+  text-align:center;
+}
+form{
+  margin:10px;
+}
+label{ width:80px; display: inline-block;}
+input{
+  width: 600px;  
+  border: 3px ridge blue;
+  border-radius:5px;
+  padding:3px;
+}
+input[type=submit]{
+  font: 18px bold;
+  width: 80px;
+  color:white;  background:blue;
+  margin-top:15px;
+  margin-left: 50px;
+}
+textarea{
+ width: 600px;  
+  border: 3px ridge blue;
+  border-radius:5px;
+  padding:3px;
+}
+button{
+  border: 3px ridge blue;
+  border-radius:5px;
+  padding:3px;
+  font: 18px bold;
+  width: 80px;
+  color:white;  background:blue;
+  margin-top:15px;
+  margin-left:20px;
+}
+
+a:link {
+  text-decoration: none; 
+  border: 3px ridge blue;
+  border-radius:5px;
+  padding:3px;
+  font: 18px bold;
+  width: 80px;
+  color:white;  background:blue;
+  margin-top:15px;
+  margin-left: 10px;
+}
+
+a:visited {
+text-decoration: none;
+border: 3px ridge blue;
+  border-radius:5px;
+  padding:3px;
+  font: 18px bold;
+  width: 80px;
+  color:white;  background:blue;
+  margin-top:15px;
+  margin-left: 10px;
+ 
+}
+
