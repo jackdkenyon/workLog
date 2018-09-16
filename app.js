@@ -6,7 +6,7 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./models/users_model.js');
 
-var db = mongoose.connect('mongodb://localhost:27017/worklog');
+var db = mongoose.connect('mongodb://' + argv.be_ip + ':80/my_database');
 var app = express();
 
 app.engine('.html', require('ejs').__express);
