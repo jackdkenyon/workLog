@@ -29,7 +29,8 @@ app.use(session({
          touchAfter: 24 * 3600 
         })
   }));
-//console.log("test4");
+
 
 require('./routes')(app);
 app.listen(80);
+console.log("App listening on port 80");
