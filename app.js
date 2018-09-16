@@ -21,9 +21,9 @@ app.use(session({
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://localhost/worklog',
+   url: 'mongodb://' + argv.be_ip + ':80/my_database',
    store: new mongoStore({
-          url: 'mongodb://localhost/worklog',
+          url: 'mongodb://' + argv.be_ip + ':80/my_database',
          //db: mongoose.connection.db,
          //collection: 'sessions'
          touchAfter: 24 * 3600 
