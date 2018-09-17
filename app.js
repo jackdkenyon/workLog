@@ -6,7 +6,7 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./models/users_model.js');
 
-var db = mongoose.connect('mongodb://' + argv.be_ip + ':80/my_database');
+var db = mongoose.connect('mongodb://10.142.0.2:80/my_database');
 var app = express();
 
 app.engine('.html', require('ejs').__express);
@@ -21,9 +21,9 @@ app.use(session({
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://' + argv.be_ip + ':80/my_database',
+   url: 'mongodb://10.142.0.2:80/my_database',
    store: new mongoStore({
-          url: 'mongodb://' + argv.be_ip + ':80/my_database',
+          url: 'mongodb://10.142.0.2:80/my_database',
          //db: mongoose.connection.db,
          //collection: 'sessions'
          touchAfter: 24 * 3600 
