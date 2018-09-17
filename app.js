@@ -21,9 +21,9 @@ app.use(session({
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://10.142.0.2:80/my_database',
+   url: 'mongodb://10.142.0.2/my_database',
    store: new mongoStore({
-          url: 'mongodb://10.142.0.2:80/my_database',
+          url: 'mongodb://10.142.0.2/my_database',
          //db: mongoose.connection.db,
          //collection: 'sessions'
          touchAfter: 24 * 3600 
