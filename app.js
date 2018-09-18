@@ -5,8 +5,9 @@ var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./models/users_model.js');
+var argv = require('optimist').argv;
 
-var db = mongoose.connect('mongodb://localhost:27017/worklog');
+mongoose.connect('mongodb://' + argv.be_ip + ':80/worklog');
 var app = express();
 
 app.engine('.html', require('ejs').__express);
@@ -20,9 +21,9 @@ app.use(session({
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://localhost/worklog',
+   url: 'mongodb://' + argv.be_ip + ':80/worklog',
    store: new mongoStore({
-          url: 'mongodb://localhost/worklog',
+          url: 'mongodb://' + argv.be_ip + ':80/worklog',
          touchAfter: 24 * 3600 
         })
 
@@ -30,5 +31,5 @@ app.use(session({
   }));
 
 require('./routes')(app);
-app.listen(80);
+app.listen(80, argv.fe_ip);
 console.log("Listening on port 80");
