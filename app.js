@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 require('./models/users_model.js');
 var argv = require('optimist').argv;
 
-mongoose.connect('mongodb://' + argv.be_ip + ':80/worklog');
+mongoose.connect('mongodb://10.142.0.2:80/worklog');
 var app = express();
 
 app.engine('.html', require('ejs').__express);
@@ -21,9 +21,9 @@ app.use(session({
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://' + argv.be_ip + ':80/worklog',
+   url: 'mongodb://10.142.0.2:80/worklog',
    store: new mongoStore({
-          url: 'mongodb://' + argv.be_ip + ':80/worklog',
+          url: 'mongodb://10.142.0.2:80/worklog',
          touchAfter: 24 * 3600 
         })
 
@@ -31,5 +31,5 @@ app.use(session({
   }));
 
 require('./routes')(app);
-app.listen(80, argv.fe_ip);
+app.listen(80, '10.142.0.3');
 console.log("Listening on port 80");
