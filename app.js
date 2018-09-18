@@ -6,7 +6,7 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./models/users_model.js');
 
-var db = mongoose.connect('mongodb://10.142.0.2:80/my_database');
+var db = mongoose.connect('mongodb://localhost:27017/worklog');
 var app = express();
 
 app.engine('.html', require('ejs').__express);
@@ -15,22 +15,20 @@ app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-
 app.use(session({
     secret: 'SECRET',
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://10.142.0.2/my_database',
+   url: 'mongodb://localhost/worklog',
    store: new mongoStore({
-          url: 'mongodb://10.142.0.2/my_database',
-         //db: mongoose.connection.db,
-         //collection: 'sessions'
+          url: 'mongodb://localhost/worklog',
          touchAfter: 24 * 3600 
         })
-  }));
 
+
+  }));
 
 require('./routes')(app);
 app.listen(80);
-console.log("App listening on port 80");
+console.log("Listening on port 80");
