@@ -30,5 +30,7 @@ app.use(session({
          })
      }));
 require('./routes')(app);
-app.listen(80, '10.142.0.3');
+var port = process.env.port || 80;
+var port = 80;
+app.listen(port, '10.142.0.3');
 console.log("Listening on port 80");
