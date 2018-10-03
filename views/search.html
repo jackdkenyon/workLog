@@ -1,0 +1,65 @@
+<!doctype html>
+
+<script>
+function refreshPage() {
+    location.reload();
+}
+ 
+ function closePage() {
+    window.close();
+}
+
+</script>
+
+<html ng-app="searchApp" ng-controller="searchController">
+<head>
+  <title>User Login and Sessions</title>
+  <link rel="stylesheet" type="text/css" 
+      href="/static/css/stylesLarge.css" />
+</head>
+<body>               
+  <div class="form-container" >
+    <p class="form-header">Search Log</p>
+    <form name= "Search" ng-submit= "updateWorklog()" >
+     
+     <label>date:</label>  
+    <input type="text" name="Date" id="date"
+                ng-model="user.date"><br><br>
+
+    <label>Ship:</label>
+         <input type="text" name="Ship" id="ship"
+                ng-model="user.ship">
+
+
+     <label>Ships Tech:</label>
+         <input type="text" name="Tech" id="tech"
+                ng-model="user.tech">
+
+    <label>JSN:</label>
+         <input type="text" name="JSN" id="jsn"
+                ng-model="user.jsn"><br><br>
+
+
+    <label>Comments:</label>
+         <textarea rows="10" cols="80"
+          contenteditable="true" spellcheck="true"
+          type="text" name="comments" ng-model="user.comments"> 
+          </textarea><br>
+
+        
+       <input type="submit" value="Update"> 
+       
+       
+       
+      
+    </form>     
+       </div>
+          <br>
+        <button ng-click = "nextRecord()" > Next </button>
+        <button onclick="refreshPage()">Refresh</button>        
+        <button onclick = "closePage()" > Close </button>   
+          
+    <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <script src="/static/js/search_app.js"></script>
+</body>
+</html>
