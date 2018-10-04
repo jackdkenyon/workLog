@@ -6,7 +6,7 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./models/users_model.js');
 
-var db = mongoose.connect('mongodb://localhost:27017/worklog');
+var db = mongoose.connect('mongodb://10.142.0.2:80/worklog');
 var app = express();
 
 app.engine('.html', require('ejs').__express);
@@ -21,9 +21,9 @@ app.use(session({
    cookie: {maxAge: 60*60*1000},
    saveUninitialized: false,
    resave: false,
-   url: 'mongodb://localhost/worklog',
+   url: 'mongodb://10.142.0.2:80/worklog',
    store: new mongoStore({
-          url: 'mongodb://localhost/worklog',
+          url: 'mongodb://10.142.0.2:80/worklog',
          //db: mongoose.connection.db,
          //collection: 'sessions'
          touchAfter: 24 * 3600 
