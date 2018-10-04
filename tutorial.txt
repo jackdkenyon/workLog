@@ -1,0 +1,36 @@
+1. ssh into db VM
+
+Install the backend database
+sudo apt-get update
+sudo apt-get install mongodb
+
+Run the database
+sudo service mongodb stop
+sudo mkdir $HOME/db
+sudo mongod --dbpath $HOME/db --port \
+    80 --fork --logpath \
+    /var/tmp/mongodb
+
+2. ssh into app VM
+Install the dependencies
+sudo apt-get update
+curl -sL \
+    https://deb.nodesource.com/setup_6.x \
+    | sudo -E bash -
+sudo apt-get install git nodejs
+
+Install and run the frontend web app
+git clone \
+https://github.com/jackdkenyon/worklog.git
+
+**** insure that you are using "mongoose": "~4.0.0" in your package.json (for mongodb ver 2.4)
+
+cd worklog; npm install
+
+**** insure that the following is in app.js
+var db = mongoose.connect('mongodb://10.142.0.2:80/worklog');
+url: 'mongodb://10.142.0.2:80/worklog',
+
+
+Start the worklog web application with the following command
+sudo nodejs app.js &
