@@ -16,44 +16,17 @@ app.get('/', function(req, res){
     }
   });
 
-app.get('/user', function(req, res){
-    if (req.session.user) {
-      res.render('user', {msg:req.session.msg});
-      console.log("In get /user");
-    } else {
-      req.session.msg = 'Access denied!';
-      res.redirect('/login');
-    }
-  });
-
-app.get('/editLog', function(req, res){
-     console.log("In get /editLog");
-    if (req.session.user) {
-      res.render('editLog', {msg:req.session.msg});
-     } else {
-      req.session.msg = 'Access denied!';
-      res.redirect('/login');
-    }
-  });
-
  app.get('/search', function(req, res){
-       console.log("In get /search");
+       
     if (req.session.user) {
-        //res.redirect('/user/search');
-      res.render('search', {msg:req.session.msg});
+        res.render('search', {msg:req.session.msg});
       
     } else {
       req.session.msg = 'Access denied!';
       res.redirect('/login');
     }
   });
-  
-app.get('/signup', function(req, res){
-    if(req.session.user){
-      res.redirect('/');
-    }
-    res.render('signup', {msg:req.session.msg});
-  });
+
   
 app.get('/login',  function(req, res){
     if(req.session.user){
@@ -75,5 +48,6 @@ app.get('/logout', function(req, res){
   app.post('/login', users.login);
   app.get('/user/profile', users.getUserProfile);
   app.get('/user/search', users.searchUserLog);
+  app.post('/user/searchValue', users.setSearchValues);
   app.post('/user/postUpdateWorklog', users.updateWorklog);
 }
