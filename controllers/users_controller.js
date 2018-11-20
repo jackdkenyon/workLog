@@ -7,6 +7,13 @@ function hashPW(pwd){
          digest('base64').toString();
 }
 
+    var dateValue = "";
+    var shipValue = "";
+    var techValue = "";
+    var jsnValue = "";
+    var commentsValue = "";
+
+
 
 exports.addDocToWorklog = function(req, res){
 var worklog = new WorkLog({creator_id : req.session.user, 
@@ -65,15 +72,42 @@ exports.login = function(req, res){
   });
 };
 
-exports.searchUserLog = function(req, res) {
- WorkLog.find({creator_id: req.session.user}).exec(function(err, user) {
+exports.setSearchValues = function(req, res) {
+    dateValue = req.body.date;
+    shipValue = req.body.ship;
+    techValue = req.body.tech;
+    jsnValue = req.body.jsn;
+    commentsValue = req.body.comments;
+      
+};
+
+
+exports.searchUserLog = function(req, res) { 
+
+if (! shipValue)
+shipValue =/.*/i;
+
+if (! techValue)
+techValue =/.*/i;
+
+if (! jsnValue)
+jsnValue =/.*/i;
+
+if (! commentsValue)
+commentsValue =/.*/i;
+
+
+ WorkLog.find({creator_id: req.session.user, ship: shipValue, tech: techValue, 
+                jsn: jsnValue, comments: {$regex:commentsValue} }).exec(function(err, user) {
    worklogList = user;
+   
    res.json(user);
     });  
 };
 
 
 exports.updateWorklog = function(req, res){
+ 
  WorkLog.findOne({ _id: req.body._id })  
    .exec(function(err, user) {   
     user.set('date', req.body.date);
