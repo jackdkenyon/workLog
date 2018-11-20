@@ -1,16 +1,4 @@
 <!doctype html>
-
-<script>
-function refreshPage() {
-    location.reload();
-}
- 
- function closePage() {
-    window.close();
-}
-
-</script>
-
 <html ng-app="searchApp" ng-controller="searchController">
 <head>
   <title>User Login and Sessions</title>
@@ -56,10 +44,13 @@ function refreshPage() {
        </div>
           <br>
         <button ng-click = "nextRecord()" > Next </button>
-        <button onclick="refreshPage()">Refresh</button>        
-        <button onclick = "closePage()" > Close </button>   
+        <button ng-click ="refreshPage()">Refresh</button> 
+         <button ng-click = "closePage()" > Close </button>       
+        
           
     <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
+
   <script src="/static/js/search_app.js"></script>
 </body>
 </html>
