@@ -1,18 +1,18 @@
-/* Node.js is an open-source, cross-platform, runtime environment that allows developers to create server-side applications in JavaScript.
+ /* Node.js is an open-source, cross-platform, runtime environment that allows developers to create server-side applications in JavaScript.
 The runtime is intended for use outside of a browser context, so it omits browser-specific JavaScript APIs and adds support for more 
 traditional OS APIs including HTTP and file system libraries. Node.js is used to create a web server.  Common web-development tasks are 
 not directly supported by Node itself. In-order to add specific handling for different HTTP verbs (e.g. GET, POST, DELETE, etc.), for URL
-paths ("routes"), for serving static files, or using templates to dynamically create the response, then you will need to write the code 
-yourself. However, you can avoid reinventing the wheel by using a web framework.  Express is the most popular Node web framework. 
-It provides mechanisms to handel web requests and web responses, handel routes, and provides rendering engines that inserts data into 
-html templates. In addition it provides mechanisms to allow adding additional request processing "middleware" at any point within the 
-request handling pipeline. While Express itself is fairly minimalist, developers have created compatible middleware packages to address 
-almost any web development problem. There are libraries to work with cookies, sessions, user logins, URL parameters, POST data, security 
-headers, and many more. Session-based authentication makes use of cookie stored in the user's browser in order to verify their 
-identity. "express-session" is middleware that stores a session identifier on the client within a cookie and stores the session data on 
-the server. Express apps can use any database that is supported by Node, such as MongoDB which is an open source NoSQL database. Mongoose
-is middleware that implements a Document-oriented Data Model(ODM) and  that provides a front end to MongoDB.  This ODM and database
-combination is extremely popular because the document storage and query system looks very much like JavaScript Object Notation (JSON). */
+paths ("routes"), serving static files, or using templates, you will need to write the code yourself. However, you can avoid reinventing
+the wheel by using a web framework.  Express is the most popular Node web framework. It provides mechanisms to handel web requests and 
+web responses, handel routes, and provides rendering engines that inserts data into html templates. In addition it provides mechanisms to
+allow adding additional request processing "middleware" at any point within the request handling pipeline. While Express itself is fairly
+minimalist, developers have created compatible middleware packages to address almost any web development problem. There are libraries to
+work with cookies, sessions, user logins, URL parameters, POST data, security headers, and many more. Session-based authentication makes
+use of a cookie stored in the user's browser in order to verify their identity. "express-session" is middleware that stores a session 
+identifier on the client within a cookie and stores the session data on the server. Express apps can use any database that is supported 
+by Node, such as MongoDB which is an open source NoSQL database. Mongoose is middleware that implements a Document-oriented Data Model
+(ODM) and provides a front end to MongoDB. This ODM and database combination is extremely popular because the document storage and
+query system looks very much like JavaScript Object Notation (JSON). */
 
 var express = require('express');
 var bodyParser = require('body-parser');
