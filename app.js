@@ -1,4 +1,4 @@
-
+ 
 /* Node.js is an open-source, cross-platform, runtime environment that allows developers to create server-side applications in JavaScript.
 The runtime is intended for use outside of a browser context, so it omits browser-specific JavaScript APIs and adds support for more 
 traditional OS APIs including HTTP and file system libraries. Node.js is used to create a web server.  Common web-development tasks are 
@@ -31,10 +31,11 @@ var db = mongoose.connect('mongodb://jack.kenyon:6135Roky54!@ds233208.mlab.com:3
 //creates an Express application
 var app = express();
 
-app.engine('.html', require('ejs').__express);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'html');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.engine('.html', require('ejs').__express); //loads ejs engine to render HTML files (renders html like templates)
+app.set('view engine', 'html'); // uses ejs engine to render HTML files
+app.set('views', __dirname + '/views'); //sets the directory where the template files are located
+
+app.use(bodyParser.urlencoded({ extended: true })); //tells the system to use deep parsing to deal with nested objects (extended: true)
 app.use(bodyParser.json());
 app.use(cookieParser());
 
