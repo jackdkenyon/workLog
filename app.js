@@ -1,4 +1,4 @@
- 
+  
 /* Node.js is an open-source, cross-platform, runtime environment that allows developers to create server-side applications in JavaScript.
 The runtime is intended for use outside of a browser context, so it omits browser-specific JavaScript APIs and adds support for more 
 traditional OS APIs including HTTP and file system libraries. Node.js is used to create a web server.  Common web-development tasks are 
@@ -35,10 +35,11 @@ app.engine('.html', require('ejs').__express); //loads ejs engine to render HTML
 app.set('view engine', 'html'); // uses ejs engine to render HTML files
 app.set('views', __dirname + '/views'); //sets the directory where the template files are located
 
-app.use(bodyParser.urlencoded({ extended: true })); //tells the system to use deep parsing to deal with nested objects (extended: true)
-app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true })); //uses deep parsing to deal with nested objects (extended: true)
+app.use(bodyParser.json()); //parse meassages using json format
+app.use(cookieParser()); //used to parse the cookies into the req.cookies object
 
+//set and configure session
 app.use(session({
     secret: 'SECRET',
    cookie: {maxAge: 60*60*1000},
