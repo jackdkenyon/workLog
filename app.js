@@ -1,4 +1,5 @@
- /* Node.js is an open-source, cross-platform, runtime environment that allows developers to create server-side applications in JavaScript.
+
+/* Node.js is an open-source, cross-platform, runtime environment that allows developers to create server-side applications in JavaScript.
 The runtime is intended for use outside of a browser context, so it omits browser-specific JavaScript APIs and adds support for more 
 traditional OS APIs including HTTP and file system libraries. Node.js is used to create a web server.  Common web-development tasks are 
 not directly supported by Node itself. In-order to add specific handling for different HTTP verbs (e.g. GET, POST, DELETE, etc.), for URL
@@ -14,6 +15,7 @@ by Node, such as MongoDB which is an open source NoSQL database. Mongoose is mid
 (ODM) and provides a front end to MongoDB. This ODM and database combination is extremely popular because the document storage and
 query system looks very much like JavaScript Object Notation (JSON). */
 
+//require() imports the nodejs modules and middleware
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -22,8 +24,11 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./models/users_model.js');
 
+//uses mongoose to connect to a MongoDB database
 //var db = mongoose.connect('mongodb://10.142.0.2:80/worklog');
 var db = mongoose.connect('mongodb://jack.kenyon:6135Roky54!@ds233208.mlab.com:33208/worklog');
+
+//creates an Express application
 var app = express();
 
 app.engine('.html', require('ejs').__express);
