@@ -31,6 +31,7 @@ var db = mongoose.connect('mongodb://jack.kenyon:6135Roky54!@ds233208.mlab.com:3
 //creates an Express application
 var app = express();
 
+//configure Express application
 app.engine('.html', require('ejs').__express); //loads ejs engine to render HTML files (renders html like templates)
 app.set('view engine', 'html'); // uses ejs engine to render HTML files
 app.set('views', __dirname + '/views'); //sets the directory where the template files are located
@@ -54,5 +55,5 @@ app.use(session({
         })
   }));
 
-require('./routes')(app);
+require('./routes')(app); //exports route functions into the express app instance
 app.listen(80);
